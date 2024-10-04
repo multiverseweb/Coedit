@@ -18,6 +18,7 @@ navItems.forEach((item) => {
 document.querySelector(".navbar").addEventListener("mouseleave", () => {
   highlight.style.width = "0";
 });
+
 function light() {
   document.getElementById("themeLogo").src = "../images/sun.png";
   document.getElementById("themeLogo").style.filter = "invert(0)";
@@ -37,6 +38,17 @@ function light() {
   if (time_code) {
     time_code.style.color = "#0b6100";
   }
+    // changing color of graph
+    const newcolor = '#000000';
+    complexityChart.options.scales.y.grid.color = newcolor;
+    complexityChart.options.scales.x.grid.color = newcolor;
+    complexityChart.options.plugins.title.color = newcolor;
+
+    const datasets = window.complexityChart.data.datasets;
+    datasets.forEach((dataset) => {
+      dataset.borderColor ='black'
+    });
+
   const heading = document.getElementById("heading");
   if (heading) {
     document.getElementById("body").style.color = "rgba(0,0,0, 0.866)";
@@ -80,6 +92,18 @@ function dark() {
   if (time_code) {
     time_code.style.color = "rgba(255, 170, 0, 0.756)";
   }
+
+  // changing color of graph
+  const newcolor = 'rgba(255, 255, 255, 0.1)';
+  complexityChart.options.scales.y.grid.color = newcolor;
+  complexityChart.options.scales.x.grid.color = newcolor;
+  complexityChart.options.plugins.title.color = "#FFFFFF";
+
+  const datasets = window.complexityChart.data.datasets;
+    datasets.forEach((dataset) => {
+      dataset.borderColor ='white'
+    });
+
   const heading = document.getElementById("heading");
   if (heading) {
     document.getElementById("body").style.color = "rgba(255, 255, 255, 0.866)";
